@@ -6,7 +6,7 @@ body {
   
   /* Style the canvas */
   #gameCanvas {
-    border: 1px solid #7e7e7e;
+    border: 1px solid #d9ff00;
     display: flex;
     justify-content: center;
     align-items: center;
