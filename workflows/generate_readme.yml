@@ -1,0 +1,37 @@
+name: Generate README
+
+on:
+  push:
+    branches: [ main ]  # Change "main" to your main branch name if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate README
+        run: |
+          # Existing title and link section
+          echo "# ozanozzz.github.io" >> README.md
+          echo "visit the [Test Mutecity](https://ozanozzz.github.io)." >> README.md
+          echo "\n" >> README.md  # Add a newline for separation
+
+          # Code sections with automatic content
+          echo "## Style.css" >> README.md
+          echo "```css" >> README.md
+          cat style.css >> README.md
+          echo "```" >> README.md
+          echo "\n" >> README.md  # Add a newline for separation
+
+          echo "## Main.js" >> README.md
+          echo "```javascript" >> README.md
+          cat main.js >> README.md
+          echo "```" >> README.md
+          echo "\n" >> README.md  # Add a newline for separation
+
+          # Add index.html content (assuming it has content)
+          echo "## index.html" >> README.md
+          echo "```html" >> README.md
+          cat index.html >> README.md
+          echo "```" >> README.md
