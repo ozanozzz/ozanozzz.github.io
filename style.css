@@ -1,12 +1,12 @@
 /* Style the body */
 body {
     font-family: Arial, sans-serif;
-    background-color: #1b1b1b;
+    background-color: #ff0000;
   }
   
   /* Style the canvas */
   #gameCanvas {
-    border: 1px solid #d9ff00;
+    border: 1px solid #96a154;
     display: flex;
     justify-content: center;
     align-items: center;
