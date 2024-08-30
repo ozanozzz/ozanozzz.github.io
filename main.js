@@ -2,8 +2,8 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 // Camera properties
-let cameraX = 0;
-let cameraY = 0;
+let cameraX = 5;
+let cameraY = 5;
 let cameraZoom = 1;
 
 // Rectangle properties
