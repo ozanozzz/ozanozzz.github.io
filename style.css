@@ -1,0 +1,10 @@
+/* Style the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1b1b1b;
+  }
+  
+  /* Style the canvas */
+  #gameCanvas {
+    border: 1px solid #7e7e7e;
+  }
