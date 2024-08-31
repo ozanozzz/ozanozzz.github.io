@@ -104,4 +104,3 @@ gameLoop();```
     <script src="main.js"></script>
 </body>
 </html>```
->>>>>>> b2418a3509d8916db8845a2643bf5bf9917c6946
