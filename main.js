@@ -7,8 +7,8 @@ let cameraY = 5;
 let cameraZoom = 1;
 
 // Rectangle properties
-let rectangleX = 0;
-let rectangleY = 0;
+let rectangleX = 6;
+let rectangleY = 6;
 let rectangleWidth = 100;
 let rectangleHeight = 50;
 
