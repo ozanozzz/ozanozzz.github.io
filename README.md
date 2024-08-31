@@ -3,7 +3,7 @@
 ```css
 body {
   font-family: Arial, sans-serif;
-  background-color: #131313;
+  background-color: #6e6e6e; /* Changed to white */
   margin: 0;
 }
 
@@ -14,8 +14,7 @@ body {
   transform: translateX(-50%);
   text-align: center;
   color: #231616;
-}
-```
+}```
 
 ## Main.js
 ```javascript
@@ -30,7 +29,7 @@ renderer.setAnimationLoop( animate );
 document.body.appendChild( renderer.domElement );
 
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const material = new THREE.MeshBasicMaterial( { color: 0x000000 } ); /* Changed to black */
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
@@ -56,7 +55,7 @@ function animate() {
 	    <link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<script type="module" src="/main.js"></script>
+		<script type="module" src="main.js"></script>
 	</body>
 </html>```
 
