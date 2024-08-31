@@ -2,7 +2,8 @@ name: Generate README
 
 on:
   push:
-    branches: [main]  # Change "main" to your main branch name if different
+    branches: [main]
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   build:
@@ -41,4 +42,3 @@ jobs:
             echo "```html" >> README.md
             cat index.html >> README.md
             echo "```" >> README.md
-          fi
