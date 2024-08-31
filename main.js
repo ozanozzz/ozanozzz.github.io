@@ -1,53 +1,60 @@
-import * as PIXI from 'pixi.js';
+import * as THREE from 'three';
 
-
-// Create a new Pixi.js application
-const app = new PIXI.Application({
-    width: 800,
-    height: 600,
-    backgroundColor: 0x000000,
+// Create a new Three.js scene, camera, and renderer
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, 800 / 600, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.getElementById('MCanvas'),
+  antialias: true
 });
-  
-  // Add the canvas to the HTML document
-  document.getElementById('MCanvas').appendChild(app.view);
-  
-  // Create a rectangle
-  const rectangle = new PIXI.Graphics();
-  rectangle.beginFill(0x0000ff); // blue
-  rectangle.drawRect(0, 0, 50, 50);
-  rectangle.endFill();
-  rectangle.x = 100;
-  rectangle.y = 100;
-  app.stage.addChild(rectangle);
-  
-  // Variables to store the mouse position and whether the rectangle is being dragged
-  let isDragging = false;
-  let offsetX = 0;
-  let offsetY = 0;
-  
-  // Event listeners for mouse down, up, and move
-  app.stage.interactive = true;
-  app.stage.hitArea = new PIXI.Rectangle(0, 0, 800, 600);
-  app.stage.on('mousedown', (event) => {
-    if (event.target === rectangle) {
+
+// Set the renderer's size
+renderer.setSize(800, 600);
+
+// Create a rectangle
+const rectangle = new THREE.Mesh(
+  new THREE.PlaneGeometry(50, 50),
+  new THREE.MeshBasicMaterial({ color: 0x0000ff }) // blue
+);
+rectangle.position.set(100, 100, 0);
+scene.add(rectangle);
+
+// Variables to store the mouse position and whether the rectangle is being dragged
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+// Event listeners for mouse down, up, and move
+document.addEventListener('mousedown', (event) => {
+  if (event.target === renderer.domElement) {
+    const raycaster = new THREE.Raycaster();
+    const mousePosition = new THREE.Vector2();
+    mousePosition.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+    mousePosition.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+    raycaster.setFromCamera(mousePosition, camera);
+    const intersects = raycaster.intersectObjects([rectangle]);
+    if (intersects.length > 0) {
       isDragging = true;
-      offsetX = rectangle.x - event.data.global.x;
-      offsetY = rectangle.y - event.data.global.y;
+      offsetX = rectangle.position.x - event.clientX;
+      offsetY = rectangle.position.y - event.clientY;
     }
-  });
-  
-  app.stage.on('mouseup', () => {
-    isDragging = false;
-  });
-  
-  app.stage.on('mousemove', (event) => {
-    if (isDragging) {
-      rectangle.x = event.data.global.x + offsetX;
-      rectangle.y = event.data.global.y + offsetY;
-    }
-  });
-  
-  // Animate the rectangle
-  app.ticker.add(() => {
-    // No need to clear the screen, Pixi.js does it for us
-  });
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+
+document.addEventListener('mousemove', (event) => {
+  if (isDragging) {
+    rectangle.position.x = event.clientX + offsetX;
+    rectangle.position.y = event.clientY + offsetY;
+  }
+});
+
+// Animate the rectangle
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+animate();
