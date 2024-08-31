@@ -49,5 +49,11 @@ jobs:
             cat index.html >> README.md
             echo '```' >> README.md
           fi
+          
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Update README"
+          git push origin main        
 
      
