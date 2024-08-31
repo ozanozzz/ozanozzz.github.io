@@ -9,8 +9,8 @@ let cameraZoom = 1;
 // Rectangle properties
 let rectangleX = 6;
 let rectangleY = 6;
-let rectangleWidth = 100;
-let rectangleHeight = 100;
+let rectangleWidth = 200;
+let rectangleHeight = 200;
 
 // Function to draw the rectangle
 function drawRectangle() {
