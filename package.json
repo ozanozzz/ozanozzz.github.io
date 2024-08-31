@@ -3,17 +3,19 @@
     "three": "^0.168.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
     "rollup": "^4.21.2",
-    "vite": "^5.4.2"
+    "rollup-plugin-commonjs": "^2.4.1"
   },
   "name": "ozanozzz.github.io",
   "version": "1.0.0",
-  "description": "```css body {   font-family: Arial, sans-serif;   background-color: #6e6e6e; /* Changed to white */   margin: 0; }",
+  "description": "```css body {   font-family: Arial, sans-serif;   background-color: #6e6e6e; /* Changed to white */   margin: 0; }",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }
