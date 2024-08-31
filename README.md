@@ -52,9 +52,8 @@ import * as PIXI from 'pixi.js';
 const app = new PIXI.Application({
     width: 800,
     height: 600,
-    backgroundColor: 0x131313,
-    resolution: devicePixelRatio || 1,
-  });
+    backgroundColor: 0x000000,
+});
   
   // Add the canvas to the HTML document
   document.getElementById('MCanvas').appendChild(app.view);
