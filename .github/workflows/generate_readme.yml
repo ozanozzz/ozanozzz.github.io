@@ -3,46 +3,14 @@ name: Generate README
 on:
   push:
     branches: [main]
-  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true  # Forces the use of Node.js 20
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Generate README
         run: |
-          # Overwrite existing README.md
-          echo "# ozanozzz.github.io" > README.md
-          echo "visit the [Test Mutecity](https://ozanozzz.github.io)." >> README.md
-          echo "" >> README.md  # Add a newline for separation
-
-          # Check if style.css exists and add its content
-          if [ -f style.css ]; then
-            echo "## Style.css" >> README.md
-            echo '```css' >> README.md
-            cat style.css >> README.md
-            echo '```' >> README.md
-            echo "" >> README.md  # Add a newline for separation
-          fi
-
-          # Check if main.js exists and add its content
-          if [ -f main.js ]; then
-            echo "## Main.js" >> README.md
-            echo '```javascript' >> README.md
-            cat main.js >> README.md
-            echo '```' >> README.md
-            echo "" >> README.md  # Add a newline for separation
-          fi
-
-          # Check if index.html exists and add its content
-          if [ -f index.html ]; then
-            echo "## index.html" >> README.md
-            echo '```html' >> README.md
-            cat index.html >> README.md
-            echo '```' >> README.md
-          fi
+          echo "# Updated README" > README.md
