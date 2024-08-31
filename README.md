@@ -20,29 +20,37 @@ body {
 ```javascript
 import * as THREE from 'three';
 
+console.log('Loading Three.js...');
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
+console.log('Creating renderer...');
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
-renderer.setAnimationLoop( animate );
 document.body.appendChild( renderer.domElement );
 
+console.log('Creating cube...');
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x000000 } ); /* Changed to black */
+const material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
+console.log('Setting up camera...');
 camera.position.z = 5;
 
+console.log('Starting animation loop...');
 function animate() {
+  requestAnimationFrame( animate );
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  renderer.render( scene, camera );
+  console.log('Rendering scene...');
+}
 
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
+animate();
 
-	renderer.render( scene, camera );
-
-}```
+console.log('Animation loop started.');```
 
 ## index.html
 ```html
