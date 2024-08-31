@@ -21,24 +21,25 @@ jobs:
           # Check if style.css exists and add its content
           if [ -f style.css ]; then
             echo "## Style.css" >> README.md
-            echo "```css" >> README.md
+            echo '```css' >> README.md
             cat style.css >> README.md
-            echo "```" >> README.md
+            echo '```' >> README.md
             echo "" >> README.md  # Add a newline for separation
           fi
 
           # Check if main.js exists and add its content
           if [ -f main.js ]; then
             echo "## Main.js" >> README.md
-            echo "```javascript" >> README.md
+            echo '```javascript' >> README.md
             cat main.js >> README.md
-            echo "```" >> README.md
+            echo '```' >> README.md
             echo "" >> README.md  # Add a newline for separation
           fi
 
           # Check if index.html exists and add its content
           if [ -f index.html ]; then
             echo "## index.html" >> README.md
-            echo "```html" >> README.md
+            echo '```html' >> README.md
             cat index.html >> README.md
-            echo "```" >> README.md
+            echo '```' >> README.md
+          fi
