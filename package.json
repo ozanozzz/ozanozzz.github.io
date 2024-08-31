@@ -5,7 +5,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
     "rollup": "^4.21.2",
-    "rollup-plugin-commonjs": "^2.4.1"
+    "rollup-plugin-commonjs": "^1.1.0"
   },
   "name": "ozanozzz.github.io",
   "version": "1.0.0",
