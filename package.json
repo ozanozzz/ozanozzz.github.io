@@ -4,5 +4,15 @@
   },
   "devDependencies": {
     "vite": "^5.4.2"
-  }
+  },
+  "name": "ozanozzz.github.io",
+  "version": "1.0.0",
+  "description": "```css body {   font-family: Arial, sans-serif;   background-color: #6e6e6e; /* Changed to white */   margin: 0; }",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
