@@ -1,10 +1,9 @@
 {
   "dependencies": {
-    "rollup": "^4.21.2",
-    "three": "^0.168.0",
-    "webpack": "^5.94.0"
+    "three": "^0.168.0"
   },
   "devDependencies": {
+    "rollup": "^4.21.2",
     "vite": "^5.4.2"
   },
   "name": "ozanozzz.github.io",
