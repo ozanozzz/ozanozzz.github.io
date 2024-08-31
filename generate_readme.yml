@@ -2,7 +2,7 @@ name: Generate README
 
 on:
   push:
-    branches: [ main ]  # Change "main" to your main branch name if different
+    branches: [main]  # Change "main" to your main branch name if different
 
 jobs:
   build:
@@ -12,26 +12,33 @@ jobs:
       - uses: actions/checkout@v3
       - name: Generate README
         run: |
-          # Existing title and link section
-          echo "# ozanozzz.github.io" >> README.md
+          # Overwrite existing README.md
+          echo "# ozanozzz.github.io" > README.md
           echo "visit the [Test Mutecity](https://ozanozzz.github.io)." >> README.md
-          echo "\n" >> README.md  # Add a newline for separation
+          echo "" >> README.md  # Add a newline for separation
 
-          # Code sections with automatic content
-          echo "## Style.css" >> README.md
-          echo "```css" >> README.md
-          cat style.css >> README.md
-          echo "```" >> README.md
-          echo "\n" >> README.md  # Add a newline for separation
+          # Check if style.css exists and add its content
+          if [ -f style.css ]; then
+            echo "## Style.css" >> README.md
+            echo "```css" >> README.md
+            cat style.css >> README.md
+            echo "```" >> README.md
+            echo "" >> README.md  # Add a newline for separation
+          fi
 
-          echo "## Main.js" >> README.md
-          echo "```javascript" >> README.md
-          cat main.js >> README.md
-          echo "```" >> README.md
-          echo "\n" >> README.md  # Add a newline for separation
+          # Check if main.js exists and add its content
+          if [ -f main.js ]; then
+            echo "## Main.js" >> README.md
+            echo "```javascript" >> README.md
+            cat main.js >> README.md
+            echo "```" >> README.md
+            echo "" >> README.md  # Add a newline for separation
+          fi
 
-          # Add index.html content (assuming it has content)
-          echo "## index.html" >> README.md
-          echo "```html" >> README.md
-          cat index.html >> README.md
-          echo "```" >> README.md
+          # Check if index.html exists and add its content
+          if [ -f index.html ]; then
+            echo "## index.html" >> README.md
+            echo "```html" >> README.md
+            cat index.html >> README.md
+            echo "```" >> README.md
+          fi
